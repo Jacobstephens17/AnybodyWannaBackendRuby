@@ -1,0 +1,1 @@
+User.create({ username: '@jacobstephens', password: 'testPassword' })
