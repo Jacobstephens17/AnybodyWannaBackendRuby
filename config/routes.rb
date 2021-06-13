@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :posts
+  root 'pages#index'
+    namespace :api do
+      namespace :v1 do
+        resources :users, param: :slug
+        resources :posts, param: :slug
+    end
+  end
+  get '#path', to: 'pages#index', via: :all
 end
