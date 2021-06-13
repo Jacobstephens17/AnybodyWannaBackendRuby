@@ -10,7 +10,7 @@ module Api
 
 
         def show 
-          post = Post.find_by(slug: param[:slug])
+          post = Post.find_by(slug: params[:slug])
           render json: PostSerializer.new(post).serialized_json
         end
 
@@ -49,7 +49,7 @@ module Api
         private
 
         def post_params
-          params.require(:title, :group).permit(:description, :location)
+          params.require(:post).permit(:title, :description, :location, :group)
         end
 
 
